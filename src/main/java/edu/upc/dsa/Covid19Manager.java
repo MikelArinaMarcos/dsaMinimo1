@@ -9,11 +9,9 @@ import java.util.List;
 public interface Covid19Manager {
     public Persona nuevaPersona(String ident, String nombreApellidos, Date fechaNac, String nivelSalud); /*Añade una persona al sistema*/
     public Collection<Persona> personaDisp();
-    public List<Muestra> ordenarMuestra(String idMuestra); /*Devuelve la lista de muestras de un usuario*/
+    public List<Muestra> ordenarMuestra(String idMuestra); /*Devuelve la lista de muestras de una persona*/
     public int sizePersona();
     public int sizeMuestra();
 
     public Persona getPersona(String idMuestra);
-
-
 }

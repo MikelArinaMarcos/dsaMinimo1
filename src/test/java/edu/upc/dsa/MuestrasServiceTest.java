@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class CasosServiceTest {
+public class MuestrasServiceTest {
 
     private HttpServer server;
     private WebTarget target;

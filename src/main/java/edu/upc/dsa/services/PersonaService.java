@@ -80,9 +80,9 @@ public class PersonaService {
     @Path("/Varios/{id}")
     public Response OrderLista(@PathParam("id")String  idPersona) {
 
-         cm.ordenarCasos(" Muestra 1");
+         cm.ordenarMuestra(" Muestra 1");
 
-        List <Muestra> muestras = this.cm.ordenarmuestra(idPersona);
+        List <Muestra> muestras = this.cm.ordenarMuestra(idPersona);
 
         GenericEntity<List<Muestra>> entity = new GenericEntity<List<Muestra>>(muestras) {
         };
