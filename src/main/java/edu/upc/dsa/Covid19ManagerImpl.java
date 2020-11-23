@@ -55,7 +55,7 @@ public class Covid19ManagerImpl implements Covid19Manager {
     public List<Muestra> ordenarMuestras(String idMuestra) {
         Persona personaSeleccionada = personas.get(idPersona);
 
-        for (Muestra m : muestraSeleccionado.getMuestrasList()) {
+        for (Muestra m : muestraSeleccionada.getMuestrasList()) {
 
             Collections.sort(personaSeleccionada.muestraList, new Comparator<Caso>() {
                 @Override
@@ -79,52 +79,42 @@ public class Covid19ManagerImpl implements Covid19Manager {
     }
 
 
-    @Override
-    public int sizeBrotes() {
-        int ret = this.brotes.size();
-        logger.info("size brote" + ret);
+    public int sizePersonas() {
+        int ret = this.personas.size();
+        logger.info("Personas" + ret);
 
         return ret;
     }
 
-    @Override
-    public int sizeCasos() {
-        int ret = this.casos.size();
-        logger.info("size casos" + ret);
+    public int sizeMuestras() {
+        int ret = this.muestras.size();
+        logger.info("Muestras" + ret);
 
         return ret;
     }
 
-    @Override
-    public Caso afegirCaso(String nombre, String apellidos, String idCaso, Date fechaNacimiento, Date fechaInforme, String clasificacion, String genero, String correo, String telefono, String direccion, String idBrote) {
-        Caso nuevo = new Caso (nombre,apellidos,idCaso,fechaNacimiento,fechaInforme,clasificacion,genero,correo,telefono,direccion,idBrote);
-        this.casos.add(nuevo);
-        this.brotes.get(idBrote).setCasosList(casos);
-        logger.info("se han añadido caso(s) al brote con id:"+idBrote);
-        return nuevo;
-
-
+    public Muestra addMuestra(String identificador, String identificadorClinico, String identificadorPersona, Date fechaExtraccion, String identificadorLaboratorio) {
+        Muestra nueva = new Muestra(identificador, identificadorClinico, identificadorPersona,fechaExtraccion, identificadorLaboratorio);
+        this.muestras.add(nueva);
+        this.muestras.get(identificador).setMuestrasList(muestras);
+        logger.info("Se ha(n) añadido caso(s) al brote con id:" + identificador);
+        return nueva;
     }
 
-    @Override
-    public List<Caso> casoBrote(String idBrote) {
+    public List<Muestra> muestraPersona(String idPersona) {
         return null;
     }
 
 
 
 
-    public Brote getBrote (String idBrote)
+    public Persona getPersona (String idPersona)
     {
-        for(Brote b: this.brotes.values()){
-            if(b.getIdBrote().equals(idBrote)){
+        for(Persona b: this.personas.values()){
+            if(b.getIdPersona().equals(idPersona)){
                 return b;
             }
         }
         return null;
-
     }
-
-
-
 }

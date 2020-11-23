@@ -11,36 +11,25 @@ import static org.junit.Assert.assertEquals;
 public class Covid19ManagerTest {
     @Before
     public void setUp() {
-        Covid19ManagerImpl.getInstance().addBrote("Brote1");
-        Covid19ManagerImpl.getInstance().addBrote("Brote2");
-        Covid19ManagerImpl.getInstance().addBrote("Brote3");
-        Covid19ManagerImpl.getInstance().addBrote("Brote4");
-        Covid19ManagerImpl.getInstance().afegirCaso("Kevin","Garcia","Caso1",new Date (1996,9,2),new Date(2020,6,24),"nocaso","Femenino","kevinalca@gmail","635473","dsfasd","Brote1");
-        Covid19ManagerImpl.getInstance().afegirCaso("Joel","Garcia","Caso1",new Date (1996,9,2),new Date(2020,6,24),"nocaso","Femenino","kevinalca@gmail","635473","dsfasd","Brote1");
-
-
-
-    }
-
-
-
-    @Test
-    public void CrearBrote() {
-
-
-        Covid19ManagerImpl.getInstance().addBrote("Brote5");
-        assertEquals(5, Covid19ManagerImpl.getInstance().sizeBrotes());
-
+        Covid19ManagerImpl.getInstance().addPersona("Persona 1");
+        Covid19ManagerImpl.getInstance().addPersona("Persona 2");
+        Covid19ManagerImpl.getInstance().addMuestra("Muestra 1","Arina","García",new Date (2020,11,23), "Laboratorio 1");
+        Covid19ManagerImpl.getInstance().addMuestra("Muestra 2","Perez","Martinez",new Date (2020,11,23), "Laboratorio 2");
     }
 
     @Test
-    public void AñadirCaso() {
+    public void CrearPersona() {
+
+        Covid19ManagerImpl.getInstance().addPersona("Persona 3");
+        assertEquals(5, Covid19ManagerImpl.getInstance().sizePersonas());
+    }
+
+    @Test
+    public void CrearMuestra() {
 
 
-        Covid19ManagerImpl.getInstance().afegirCaso("Majo","Garcia","Caso1",new Date (1996,9,2),new Date(2020,6,24),"nocaso","Femenino","kevinalca@gmail","635473","dsfasd","Brote1");
-
-        assertEquals(3, Covid19ManagerImpl.getInstance().sizeCasos());
-
+        Covid19ManagerImpl.getInstance().addMuestra("Muestra 3","Lopez","Marcos",new Date (2020,11,23), "Laboratorio 1");
+        assertEquals(3, Covid19ManagerImpl.getInstance().sizeMuestras());
     }
 
 
