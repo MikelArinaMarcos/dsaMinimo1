@@ -46,38 +46,31 @@ public class Covid19ManagerImpl implements Covid19Manager {
     }
 
     @Override
+    public Persona nuevaPersona(String ident, String nombreApellidos, int fechaNac, String nivelSalud) {
+        return null;
+    }
+
+    @Override
     public Collection<Persona> personaDisp() {
 
         logger.info("Personas");
         return this.personas.values();
     }
 
-    public List<Muestra> ordenarMuestras(String idMuestra) {
-        Persona personaSeleccionada = personas.get(idPersona);
-
-        for (Muestra m : muestraSeleccionada.getMuestrasList()) {
-
-            Collections.sort(personaSeleccionada.muestraList, new Comparator<Caso>() {
-                @Override
-                public int compare(Caso o1, Caso o2) {
-                    return o1.getClasificacion().compareTo(o2.getClasificacion());
-                }
-            });
-
-                Collections.sort(personaSeleccionada.muestraList, new Comparator<Caso>() {
-                    @Override
-                    public int compare(Caso o1, Caso o2) {
-
-                        return o1.getFechaInforme().compareTo(o2.getFechaInforme());
-                    }
-
-                });
-
-
-        }
-        return personaSeleccionada.muestraList;
+    @Override
+    public List<Muestra> ordenarMuestra(String idMuestra) {
+        return null;
     }
 
+    @Override
+    public int sizePersona() {
+        return 0;
+    }
+
+    @Override
+    public int sizeMuestra() {
+        return 0;
+    }
 
     public int sizePersonas() {
         int ret = this.personas.size();
@@ -114,6 +107,13 @@ public class Covid19ManagerImpl implements Covid19Manager {
             if(b.getIdPersona().equals(idPersona)){
                 return b;
             }
+        }
+        return null;
+    }
+
+    public Muestra getMuestra(String idMuestra) {
+        for(Muestra m: this.muestras,values()){
+            if(addMuestra().getIdentificadorPersona())
         }
         return null;
     }

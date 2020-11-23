@@ -33,8 +33,6 @@ public class MuestraService {
             this.cm.nuevaPersona("Mikel", "Arina Marcos", 02/12/1992, "A");
             this.cm.nuevaPersona("Manuel", "Gomez Garcia", 04/01/2002, "B");
         }
-
-
     }
 
     @GET
@@ -42,18 +40,6 @@ public class MuestraService {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Persona.class, responseContainer = "List"),
     })
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getMuestras() {
-
-        Collection<Muestra> muestras = this.cm.muestraDisp();
-
-        GenericEntity<Collection<Muestra>> entity = new GenericEntity<Collection<Muestra>>(muestras) {
-        };
-
-        return Response.status(201).entity(entity).build();
-
-    }
 
     @POST /*Añade una nueva muestra */
     @ApiOperation(value = "Creamos una nueva muestra", notes = "nueva muestra")
